@@ -2,6 +2,8 @@ import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+import { NavLink } from 'react-router-dom';
+
 class Navbar extends React.Component {
   logout = (event) => {
     event.preventDefault();
@@ -21,9 +23,9 @@ class Navbar extends React.Component {
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               {authed ? (
                 <div className="navbar-nav">
-                  <button className="btn nav-item nav-link">Home</button>
-                  <button className="btn nav-item nav-link">My Stuff</button>
-                  <button className="btn nav-item nav-link">New</button>
+                  <NavLink to="/home" className="btn nav-item nav-link">Home</NavLink>
+                  <NavLink to="/stuff" className="btn nav-item nav-link">Stuff</NavLink>
+                  <NavLink to="/new" className="btn nav-item nav-link">New</NavLink>
                   <button className="btn nav-item nav-link" onClick={logout}>Logout</button>
                 </div>
               ) : (<div className="navbar-nav"></div>)}
